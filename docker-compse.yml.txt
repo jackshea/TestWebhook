@@ -1,0 +1,12 @@
+version: '2'
+services: 
+  app:
+    image: mcr.microsoft.com/dotnet/sdk:5.0-buster-slim
+    volumes:
+      - ./TestWebhook:/src
+    working_dir: /src
+    ports: 
+      - 5000:5000
+      - 5001:5001
+    restart: always
+    entrypoint: dotnet watch run
